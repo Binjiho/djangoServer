@@ -1,2 +1,2 @@
 # djangoServer
-djangoAdmin
+admin with drf for test
