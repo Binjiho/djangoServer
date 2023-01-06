@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      # Install dependencies needed for running tests
+      # - echo Installing dependencies
+      - pip3 install -r requirements.txt
+  build:
+    commands:
+      - python manage.py test
+  post_build:
+    commands:
+      #날짜
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'

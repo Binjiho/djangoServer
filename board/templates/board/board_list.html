@@ -1,0 +1,86 @@
+    {#  HEADER  #}
+    {% include 'djangoProject/header.html' %}
+    {#  HEADER  #}
+
+    {#  SECTION- main  #}
+    <section id="main" style="width: 990px;">
+        <article class="result">
+
+        <h3>게시판 >> 이벤트 게시판</h3>
+
+        <form method='POST' action="">
+        <input type=hidden name=no value="<?=$data['no']?>">
+        <table class="table table-hover">
+            <thead>
+            <tr height=25 align=center>
+                <th scope="col">NO</th>
+                <th scope="col">제목</th>
+                <th scope="col">PV</th>
+                <th scope="col">이벤트 기간<br>페이지Open기간</th>
+                <th scope="col">조회</th>
+                <th scope="col">수정</th>
+                <th scope="col">상태</th>
+                <th scope="col">판매상품</th>
+                <th scope="col">마감문구</th>
+                <th scope="col">등록일</th>
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            {% for board_item in board_list %}
+            <tr align=center height=25>
+                <th>{{ forloop.revcounter }}</th>
+                <td align='left' style="padding-left:10px">
+                    {{ board_item.title }}
+                </td>
+                <td>
+                    {{ board_item.pv }}
+                </td>
+                <td>
+                    {{ board_item.evt_sdt|slice:"2:-3" }} ~ {{ board_item.evt_edt|slice:"2:-3" }}
+                    <br>{{ board_item.dp_sdt|slice:"2:-3" }} ~ {{ board_item.dp_edt|slice:"2:-3" }}
+                </td>
+                <td>
+                    {{ board_item.no }}
+                </td>
+                <td>
+                    <button onclick="location.href='/board/detail/{{ board_item.no }}'" type="button" class="btn
+                    btn-outline-primary
+                    btn-sm">수정하기</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm">추가설정</button>
+{#                    <input type='button' class="button1" value="수정하기" onclick="location.href='<?=$_SERVER['PHP_SELF']?>?no=<?=$data[$i]['no']?>&mode=editform';">#}
+{#                    <?if(!empty($data[$i]['json_schema'])) { ?>#}
+{#                        <br><input type='button' class="button1" value="추가설정" onclick="window.open('/board/event_config/event_config_info.php?evt_no=<?=$data[$i]['no']?>','write','scrollbars=yes,width=1600,height=700');">#}
+{#                    <? } ?>#}
+                </td>
+                <td>
+{#                    <? if ($data[$i]['display'] == '1'){#}
+{#                        echo "노출";#}
+{#                    } else if ($data[$i]['display'] == '2'){#}
+{#                        echo"비노출";#}
+{#                    } else {#}
+{#                        echo "TEST";#}
+{#                    } ?>#}
+                </td>
+                <td>
+{#                    <a href="javascript:;" onclick="window.open('site_evt_prod.php?evt_no=<?=$data[$i]['no']?>','evt_prod','scrollbars=yes,width=900,height=900');"class="button2">상품등록</a>#}
+                </td>
+                <td>
+{#                    <a href="javascript:;" onclick="window.open('site_evt_noti.php?evt_no=<?=$data[$i]['no']?>','evt_prod','scrollbars=yes,width=900,height=900');"class="button2">마감문구</a>#}
+                </td>
+                <td>
+{#                    <?=substr ($data[$i]['wdate'],2,-3)?>#}
+                </td>
+            </tr>
+        </tbody>
+{% endfor %}
+</table>
+
+
+        </article>
+    </section>
+    {#  SECTION- main  #}
+
+    {#  LAYOUT- footer  #}
+    {% include 'djangoProject/footer.html' %}
+    {#  LAYOUT- footer  #}

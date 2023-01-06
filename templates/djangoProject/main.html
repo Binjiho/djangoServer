@@ -1,0 +1,39 @@
+    {#  HEADER  #}
+    {% include 'djangoProject/header.html' %}
+    {#  HEADER  #}
+
+    {#  LAYOUT- left_menu  #}
+{#    {% include 'djangoProject/left_menu.html' %}#}
+    {#  LAYOUT- left_menu  #}
+
+    {#  SECTION- main  #}
+    <section id="main" style="width: 990px;">
+        <article class="result">
+            <div style="overflow: hidden;">
+                <ul>
+{#                    {% for site_evt in site_evt_list %}#}
+{#                        <li>{{ site_evt.no }}</li>#}
+{#                    {% endfor %}#}
+                    <li><a href="./main_ajax.php?tabs=A01">공지사항</a></li>
+                    <li><a href="./main_ajax.php?tabs=A02">일정</a></li>
+                </ul>
+            </div>
+            <div id="tabs" style="height:150px;margin-top:10px;">
+                <div style="float:right;padding:10px 20px 0 0;">※ 7일이내 판매오픈예정 상품</div>
+                <ul>
+                    <li><a href="./main_ajax.php?tabs=B04" style="font-weight:bold;">판매오픈예정상품</a></li>
+                </ul>
+            </div>
+            <div id="tabs" style="height:150px;margin-top:10px;">
+                <div style="float:right;padding:10px 20px 0 0;">※ 7일이내 판매종료예정 상품</div>
+                <ul>
+                    <li><a href="./main_ajax.php?tabs=B03" style="font-weight:bold;">판매종료예정상품</a></li>
+                </ul>
+            </div>
+        </article>
+    </section>
+    {#  SECTION- main  #}
+
+    {#  LAYOUT- footer  #}
+    {% include 'djangoProject/footer.html' %}
+    {#  LAYOUT- footer  #}
